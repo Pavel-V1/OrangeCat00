@@ -5,12 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="621fff31-5a5c-4fad-8479-62ee1994f76d" name="Changes" comment="commit and push from IJ">
-      <change afterPath="$PROJECT_DIR$/ru/vsu/cs/cgg25/g11/voronov_p_a/tasks/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newnewnew/New.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/newnewnew/ru/vsu/cs/oop25/g11/voronov_p_a/newnewnew/Animation.java" beforeDir="false" afterPath="$PROJECT_DIR$/ru/vsu/cs/cgg25/g11/voronov_p_a/tasks/Animation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newnewnew/ru/vsu/cs/oop25/g11/voronov_p_a/newnewnew/InputUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OrangeCat00/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OrangeCat00/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newnewnew/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/newnewnew/.idea/artifacts/newnewnew_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/newnewnew/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/newnewnew/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/newnewnew/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/newnewnew/New.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/newnewnew/newnewnew.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/newnewnew/out/production/newnewnew/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/newnewnew/out/production/newnewnew/.idea/artifacts/newnewnew_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/newnewnew/out/production/newnewnew/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/newnewnew/out/production/newnewnew/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/newnewnew/out/production/newnewnew/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/newnewnew/out/production/newnewnew/newnewnew.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
