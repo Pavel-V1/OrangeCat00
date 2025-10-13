@@ -1,4 +1,4 @@
-package ru.vsu.cs.cgg25.g11.voronov_p_a.tasks;
+package ru.vsu.cs.cgg25.g11.voronov_p_a.tasks.task1;
 
 public class Main {
     public static void main(String[] args) {

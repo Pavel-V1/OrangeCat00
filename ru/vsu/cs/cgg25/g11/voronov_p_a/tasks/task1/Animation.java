@@ -1,4 +1,4 @@
-package ru.vsu.cs.cgg25.g11.voronov_p_a.tasks;
+package ru.vsu.cs.cgg25.g11.voronov_p_a.tasks.task1;
 
 import javax.swing.*;
 import java.awt.*;
@@ -35,7 +35,7 @@ class ApplicationPanel extends JPanel {
         renderingTime += timeDelta;
 
 //        ovalPositionX += AnimationSpeed * ovalAnimationDirectionX * timeDelta;
-        ovalPositionX = rectPositionY + 120;
+        ovalPositionX = rectPositionY + rectWidth/3;
         ovalPositionY = getHeight() - ovalHeight;
         rectPositionY += AnimationSpeed * rectAnimationDirectionY * timeDelta;
         rectPositionY2 = getHeight() - rectHeight - rectPositionY;
@@ -68,16 +68,46 @@ class ApplicationPanel extends JPanel {
     public void paint(Graphics g) {
         super.paint(g);
 
-        g.setColor(new Color(46, 44, 44));
+//        platforms(g, new Color(46, 44, 44), new Color(0, 0, 0));
+
+        drawPlatform1(g, new Color(46, 44, 44), new Color(0, 0, 0));
+        drawPlatform2(g, new Color(46, 44, 44), new Color(0, 0, 0));
+        redOrOtherColorBall(g, Color.red);
+        displayGameName(g, currentColor);
+    }
+
+//    private void platforms(Graphics g, Color clr1, Color clr2) {
+//        //создание платформ из абстрактного класса Platform, но у них всех будут задаваться единые цвета
+//    }
+
+    private void drawPlatform1(Graphics g, Color clr1, Color clr2) {
+        g.setColor(clr1);
         g.fillRect((int) rectPositionX,
                 (int) rectPositionY,
                 (int) rectWidth,
                 (int) rectHeight);
+        g.setColor(clr2);
+        g.fillRect((int) rectPositionX + (int) rectWidth / 4,
+                0,
+                (int) rectWidth / 2,
+                (int) rectPositionY);
+    }
+
+    private void drawPlatform2(Graphics g, Color clr1, Color clr2) {
+        g.setColor(clr1);
         g.fillRect((int) rectPositionX + 370,
                 (int) rectPositionY2,
                 (int) rectWidth,
                 (int) rectHeight);
-        g.setColor(Color.RED);
+        g.setColor(clr2);
+        g.fillRect((int) rectPositionX + (int) rectWidth / 4 + 370,
+                0,
+                (int) rectWidth / 2,
+                (int) rectPositionY2);
+    }
+
+    private void redOrOtherColorBall(Graphics g, Color clr) {
+        g.setColor(clr);
         g.fillOval((int) ovalPositionX,
                 (int) ovalPositionY,
                 (int) ovalWidth,
@@ -106,15 +136,10 @@ class ApplicationPanel extends JPanel {
                 20,
                 190,
                 170);
-        g.fillRect((int) rectPositionX + (int) rectWidth / 4,
-                0,
-                (int) rectWidth / 2,
-                (int) rectPositionY);
-        g.fillRect((int) rectPositionX + (int) rectWidth / 4 + 370,
-                0,
-                (int) rectWidth / 2,
-                (int) rectPositionY2);
-        g.setColor(currentColor);
+    }
+
+    private void displayGameName(Graphics g, Color clr) {
+        g.setColor(clr);
         g.drawString("RED BALL", 260, 100);
     }
 }
