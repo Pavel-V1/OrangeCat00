@@ -3,13 +3,13 @@ package ru.vsu.cs.cgg25.g11.voronov_p_a.tasks.task2;
 import java.awt.*;
 
 public class TriangleInterpolation {
-    Interpolation(Point p1, Point p2, Point p3) {
-        double x_0 = p1.x;
-        double y_0 = p1.x;
+    public void Interpolation(Point p1, Point p2, Point p3) {
         double x_1 = p1.x;
-        double y_1 = p1.x;
-        double x_2 = p1.x;
-        double y_2 = p1.x;
+        double y_1 = p1.y;
+        double x_2 = p2.x;
+        double y_2 = p2.y;
+        double x_3 = p3.x;
+        double y_3 = p3.y;
 
 
 //        sort triangle vertices by y :

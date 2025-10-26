@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="github.adedayo.intellij.sdk.javaFX" type="repository">
+    <properties maven-id="com.github.adedayo.intellij.sdk:javaFX:142.1" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/adedayo/intellij/sdk/javaFX/142.1/javaFX-142.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
