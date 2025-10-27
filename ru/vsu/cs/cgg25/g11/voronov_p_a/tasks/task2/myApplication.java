@@ -75,7 +75,7 @@ class ApplicationWindow extends JFrame {
     }
 }
 
-public class mpApplication {
+public class myApplication {
     public static void applicationPush() {
         ApplicationWindow applicationWindow = new ApplicationWindow();
         applicationWindow.setVisible(true);
