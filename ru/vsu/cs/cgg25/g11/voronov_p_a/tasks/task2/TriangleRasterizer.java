@@ -35,15 +35,12 @@ public class TriangleRasterizer extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        rasterizeTriangle(g);
+        rasterizeTriangle(g, a, b, c);
     }
 
-    public void rasterizeTriangle(Graphics g) {
-        int width = getWidth();
-        int height = getHeight();
-
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
+    public void rasterizeTriangle(Graphics g, Point a, Point b, Point c) {
+        for (int y = Math.min(Math.min(a.y, b.y), c.y); y <= Math.max(Math.max(a.y, b.y), c.y); y++) {
+            for (int x = Math.min(Math.min(a.x, b.x), c.x); x <= Math.max(Math.max(a.x, b.x), c.x); x++) {
                 double[] baryCoords = calculateBaryCoords(new Point(x, y), a, b, c);
                 if (isInsideTriangle(baryCoords)) {
                     Color interpolatedColor = interpolateColor(baryCoords, c1, c2, c3);
@@ -62,11 +59,11 @@ public class TriangleRasterizer extends JPanel {
         return new double[]{areaA, areaB, areaC};
     }
 
-    private float triangleArea(Point a, Point b, Point c) {
-        return abs((a.x * (b.y - c.y) + b.x * (c.y - a.y) + c.x * (a.y - b.y))) / 2f;
+    private double triangleArea(Point a, Point b, Point c) {
+        return abs((a.x * (b.y - c.y) + b.x * (c.y - a.y) + c.x * (a.y - b.y))) / 2d;
     }
 
-    private float abs(float x) {
+    private double abs(double x) {
         if (x < 0) {
             return -x;
         } else {
@@ -80,18 +77,18 @@ public class TriangleRasterizer extends JPanel {
     }
 
     private Color interpolateColor(double[] baryCoords, Color c1, Color c2, Color c3) {
-        int red = (int) (c1.getRed() * baryCoords[0] +
+        int r = (int) (c1.getRed() * baryCoords[0] +
                 c2.getRed() * baryCoords[1] +
                 c3.getRed() * baryCoords[2]);
 
-        int green = (int) (c1.getGreen() * baryCoords[0] +
+        int g = (int) (c1.getGreen() * baryCoords[0] +
                 c2.getGreen() * baryCoords[1] +
                 c3.getGreen() * baryCoords[2]);
 
-        int blue = (int) (c1.getBlue() * baryCoords[0] +
+        int b = (int) (c1.getBlue() * baryCoords[0] +
                 c2.getBlue() * baryCoords[1] +
                 c3.getBlue() * baryCoords[2]);
 
-        return new Color(red, green, blue);
+        return new Color(r, g, b);
     }
 }
