@@ -23,7 +23,8 @@ public class affineTransformerOptimusPrime {
         Matrix3f m3f = new Matrix3f(tv3f.x, 0, 0, 0, tv3f.y, 0, 0, 0, tv3f.z);
         for (Vector3f v3f : model.vertices) {
             Matrix3f v3fMatrix = new Matrix3f(v3f.x, 0, 0, v3f.y, 0, 0, v3f.z, 0, 0);
-            v3fMatrix.mul(m3f);
+            m3f.mul(v3fMatrix);
+            v3fMatrix = m3f;
             v3f.set(v3fMatrix.m00, v3fMatrix.m10, v3fMatrix.m20);
         }
     }
