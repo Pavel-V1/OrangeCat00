@@ -1,28 +1,32 @@
 package ru.vsu.cs.cgg25.g11.voronov_p_a.tasks.task2;
 
 import java.awt.*;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class TriangleRasterizer extends JPanel {
-    private static Point a;
-    private static Point b;
-    private static Point c;
-    private static Color c1;
-    private static Color c2;
-    private static Color c3;
+    private static ArrayList<Triangle> mainArrayT = new ArrayList<Triangle>();
+    private static ArrayList<BoxT> boxTArray = new ArrayList<BoxT>();
 
-    public static void launch(Point a, Point b, Point c, Color cr) {
-        launch(a, b, c, cr, cr, cr);
+    public static void makeTriangle(Point a, Point b, Point c, Color c1, Color c2, Color c3) {
+        mainArrayT.add(new Triangle(a, b, c, c1, c2, c3));
     }
 
-    public static void launch(Point al, Point bl, Point cl, Color c1l, Color c2l, Color c3l) {
-        a = al;
-        b = bl;
-        c = cl;
-        c1 = c1l;
-        c2 = c2l;
-        c3 = c3l;
+    public static void makeTriangle(Point a, Point b, Point c, Color cl) {
+        mainArrayT.add(new Triangle(a, b, c, cl, cl, cl));
+    }
+
+    public static void makeBoxForTriangle(Point a, Point b, Point c, Color cl) {
+        int minX = Math.min(Math.min(a.x, b.x), c.x);
+        int maxX = Math.max(Math.max(a.x, b.x), c.x);
+        int minY = Math.min(Math.min(a.y, b.y), c.y);
+        int maxY = Math.max(Math.max(a.y, b.y), c.y);
+
+        boxTArray.add(new BoxT(new Point(minX, minY), new Point(maxX, maxY), cl));
+    }
+
+    public static void launch() {
         JFrame frame = new JFrame("Triangle Rasterization");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(new TriangleRasterizer());
@@ -35,16 +39,36 @@ public class TriangleRasterizer extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        rasterizeTriangle(g, a, b, c);
+        for (Triangle triangle : mainArrayT) {
+            rasterizeTriangle(g, triangle.a, triangle.b, triangle.c, triangle.c1, triangle.c2, triangle.c3);
+        }
+        for (BoxT boxT : boxTArray) {
+            rasterizeBoxT(g, boxT.minP, boxT.maxP, boxT.cl);
+        }
     }
 
-    public void rasterizeTriangle(Graphics g, Point a, Point b, Point c) {
+    public void rasterizeTriangle(Graphics g, Point a, Point b, Point c, Color c1, Color c2, Color c3) {
         for (int y = Math.min(Math.min(a.y, b.y), c.y); y <= Math.max(Math.max(a.y, b.y), c.y); y++) {
             for (int x = Math.min(Math.min(a.x, b.x), c.x); x <= Math.max(Math.max(a.x, b.x), c.x); x++) {
                 double[] baryCoords = calculateBaryCoords(new Point(x, y), a, b, c);
                 if (isInsideTriangle(baryCoords)) {
                     Color interpolatedColor = interpolateColor(baryCoords, c1, c2, c3);
                     g.setColor(interpolatedColor);
+                    g.fillRect(x, y, 1, 1);
+                }
+            }
+        }
+    }
+
+    public void rasterizeBoxT(Graphics g, Point minP, Point maxP, Color cl) {
+        for (int y = minP.y; y <= maxP.y; y++) {
+            for (int x = minP.x; x <= maxP.x; x++) {
+                g.setColor(cl);
+                if (y != minP.y && y != maxP.y) {
+                    g.fillRect(minP.x, y, 1, 1);
+                    g.fillRect(maxP.x, y, 1, 1);
+                    break;
+                } else {
                     g.fillRect(x, y, 1, 1);
                 }
             }
