@@ -48,16 +48,17 @@ public class TriangleRasterizer extends JPanel {
     }
 
     public void rasterizeTriangle(Graphics g, Point a, Point b, Point c, Color c1, Color c2, Color c3) {
-        for (int y = Math.min(Math.min(a.y, b.y), c.y); y <= Math.max(Math.max(a.y, b.y), c.y); y++) {
-            for (int x = Math.min(Math.min(a.x, b.x), c.x); x <= Math.max(Math.max(a.x, b.x), c.x); x++) {
-                double[] baryCoords = calculateBaryCoords(new Point(x, y), a, b, c);
-                if (isInsideTriangle(baryCoords)) {
-                    Color interpolatedColor = interpolateColor(baryCoords, c1, c2, c3);
-                    g.setColor(interpolatedColor);
-                    g.fillRect(x, y, 1, 1);
-                }
-            }
-        }
+//        // сделать скайлайном
+//        for (int y = Math.min(Math.min(a.y, b.y), c.y); y <= Math.max(Math.max(a.y, b.y), c.y); y++) {
+//            for (int x = Math.min(Math.min(a.x, b.x), c.x); x <= Math.max(Math.max(a.x, b.x), c.x); x++) {
+//                double[] baryCoords = calculateBaryCoords(new Point(x, y), a, b, c);
+//                if (isInsideTriangle(baryCoords)) {
+//                    Color interpolatedColor = interpolateColor(baryCoords, c1, c2, c3);
+//                    g.setColor(interpolatedColor);
+//                    g.fillRect(x, y, 1, 1);
+//                }
+//            }
+//        }
     }
 
     public void rasterizeBoxT(Graphics g, Point minP, Point maxP, Color cl) {
@@ -95,10 +96,10 @@ public class TriangleRasterizer extends JPanel {
         }
     }
 
-    private boolean isInsideTriangle(double[] baryCoords) {
-        return baryCoords[0] >= 0 && baryCoords[1] >= 0 && baryCoords[2] >= 0 &&
-                baryCoords[0] + baryCoords[1] + baryCoords[2] <= 1 + 1e-7;
-    }
+//    private boolean isInsideTriangle(double[] baryCoords) {
+//        return baryCoords[0] >= 0 && baryCoords[1] >= 0 && baryCoords[2] >= 0 &&
+//                baryCoords[0] + baryCoords[1] + baryCoords[2] <= 1 + 1e-7;
+//    }
 
     private Color interpolateColor(double[] baryCoords, Color c1, Color c2, Color c3) {
         int r = (int) (c1.getRed() * baryCoords[0] +
