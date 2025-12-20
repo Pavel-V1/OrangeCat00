@@ -53,8 +53,10 @@ public class TriangleRasterizer extends JPanel {
     }
 
     public void rasterizeTriangle(Graphics g, Point a, Point b, Point c, Color c1, Color c2, Color c3) {
-        Point top = (a.y > b.y ? a : b).y > c.y ? (a.y > b.y ? a : b) : c;
-        Point bottom = (a.y < b.y ? a : b).y < c.y ? (a.y < b.y ? a : b) : c;
+        Point bigger = (a.y > b.y ? a : b);
+        Point lower = (a.y < b.y ? a : b);
+        Point top = bigger.y > c.y ? bigger : c;
+        Point bottom = lower.y < c.y ? lower : c;
         Point middle = a != top && a != bottom ? a : b != top && b != bottom ? b : c;
 
         for (int y = bottom.y; y < middle.y; y++) {
