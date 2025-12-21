@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="621fff31-5a5c-4fad-8479-62ee1994f76d" name="Changes" comment="something wrong">
-      <change afterPath="$PROJECT_DIR$/ru/vsu/cs/cgg25/g11/voronov_p_a/tasks/task3/Model.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ru/vsu/cs/cgg25/g11/voronov_p_a/tasks/task3/TestClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/OrangeCat00.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OrangeCat00.iml" afterDir="false" />
+    <list default="true" id="621fff31-5a5c-4fad-8479-62ee1994f76d" name="Changes" comment="need to fix task2 + tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OrangeCat00/.idea/OrangeCat00.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OrangeCat00/.idea/OrangeCat00.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/OrangeCat00/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OrangeCat00/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ru/vsu/cs/cgg25/g11/voronov_p_a/tasks/task2/TriangleRasterizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/ru/vsu/cs/cgg25/g11/voronov_p_a/tasks/task2/TriangleRasterizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ru/vsu/cs/cgg25/g11/voronov_p_a/tasks/task3/TestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/ru/vsu/cs/cgg25/g11/voronov_p_a/tasks/task3/TestClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ru/vsu/cs/cgg25/g11/voronov_p_a/tasks/task3/affineTransformerOptimusPrime.java" beforeDir="false" afterPath="$PROJECT_DIR$/ru/vsu/cs/cgg25/g11/voronov_p_a/tasks/task3/affineTransformerOptimusPrime.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,10 +64,12 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Launcher.executor": "Run",
+    "Application.what.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.TestClass.executor": "Run",
     "JUnit.TestClass.test1.executor": "Run",
     "JUnit.TestClass.testScale.executor": "Run",
+    "JUnit.TestClass.testTransport.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -93,26 +91,13 @@
       <recent name="C:\Users\User\Documents\GitHub\OrangeCat00\ru\vsu\cs\cgg25\g11\voronov_p_a\tasks\task2\RasterizationFXApp" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestClass.testScale">
-    <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ru.vsu.cs.cgg25.g11.voronov_p_a.tasks.task2.Launcher" />
+  <component name="RunManager" selected="JUnit.TestClass">
+    <configuration name="what" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.vsu.cs.cgg25.g11.voronov_p_a.tasks.task3.what" />
       <module name="OrangeCat00" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.vsu.cs.cgg25.g11.voronov_p_a.tasks.task2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TriangleRasterizer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ru.vsu.cs.cgg25.g11.voronov_p_a.tasks.task2.TriangleRasterizer" />
-      <module name="OrangeCat00" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.vsu.cs.cgg25.g11.voronov_p_a.tasks.task2.*" />
+          <option name="PATTERN" value="ru.vsu.cs.cgg25.g11.voronov_p_a.tasks.task3.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -167,13 +152,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestClass.testTransport" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="OrangeCat00" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.vsu.cs.cgg25.g11.voronov_p_a.tasks.task3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.vsu.cs.cgg25.g11.voronov_p_a.tasks.task3" />
+      <option name="MAIN_CLASS_NAME" value="ru.vsu.cs.cgg25.g11.voronov_p_a.tasks.task3.TestClass" />
+      <option name="METHOD_NAME" value="testTransport" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestClass" />
+        <item itemvalue="JUnit.TestClass.testTransport" />
+        <item itemvalue="Application.what" />
         <item itemvalue="JUnit.TestClass.testScale" />
         <item itemvalue="JUnit.TestClass.test1" />
-        <item itemvalue="JUnit.TestClass" />
-        <item itemvalue="Application.Launcher" />
-        <item itemvalue="Application.TriangleRasterizer" />
       </list>
     </recent_temporary>
   </component>
@@ -223,7 +224,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766262522122</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="need to fix task2 + tests">
+      <option name="closed" value="true" />
+      <created>1766266624768</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1766266624768</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -242,7 +251,8 @@
     <MESSAGE value="bgn task2" />
     <MESSAGE value="do 2 task and begin 3 task" />
     <MESSAGE value="something wrong" />
-    <option name="LAST_COMMIT_MESSAGE" value="something wrong" />
+    <MESSAGE value="need to fix task2 + tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="need to fix task2 + tests" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/orangecat00$Main__1_.ic" NAME="Main (1) Coverage Results" MODIFIED="1760354084810" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
