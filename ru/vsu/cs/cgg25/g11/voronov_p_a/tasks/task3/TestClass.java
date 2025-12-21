@@ -3,6 +3,7 @@ package ru.vsu.cs.cgg25.g11.voronov_p_a.tasks.task3;
 import org.junit.jupiter.api.Test;
 
 import javax.vecmath.Vector3f;
+import javax.vecmath.Vector4f;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,7 +17,7 @@ public class TestClass {
         ato.scaleX(model, 2);
         assertEquals(new Vector3f(4, 3, 5), model.vertices.get(0));
         assertEquals(new Vector3f(2, 0, 1), model.vertices.get(1));
-        ato.scale(model, 2, -1, -2);
+        ato.scale(model, 2, -1, -2, 1);
         assertEquals(new Vector3f(8, -3, -10), model.vertices.get(0));
         assertEquals(new Vector3f(4, 0, -2), model.vertices.get(1));
     }
@@ -33,6 +34,7 @@ public class TestClass {
         atop.rotateByY(model, Math.PI / 2, true);
         assertEquals(new Vector3f(-1, 1, -1), model.vertices.get(0));
         assertEquals(new Vector3f(-5, 4, -2), model.vertices.get(1));
+        atop.rotate(model, new Vector4f(90, 90, 0, 1), false);
     }
 
     @Test
@@ -47,7 +49,7 @@ public class TestClass {
         op.transportY(model, 0.5F);
         assertEquals(new Vector3f(7, 3.5F, 3), model.vertices.get(0));
         assertEquals(new Vector3f(6, 5.5F, 7), model.vertices.get(1));
-        op.transport(model, -4, 2.2F, 0);
+        op.transport(model, -4, 2.2F, 0, 1);
         assertEquals(new Vector3f(3, 5.7F, 3), model.vertices.get(0));
         assertEquals(new Vector3f(2, 7.7F, 7), model.vertices.get(1));
     }
