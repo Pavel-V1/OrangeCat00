@@ -1,6 +1,7 @@
 package ru.vsu.cs.cgg25.g11.voronov_p_a.tasks.task3;
 
 import javax.vecmath.*;
+import ru.vsu.cs.cgg25.g11.voronov_p_a.tasks.task3.AffineMatricesVecCol.*;
 
 public class affineTransformerOptimusPrime {
 
@@ -21,10 +22,7 @@ public class affineTransformerOptimusPrime {
     }
 
     public void scale(Model model, float x, float y, float z, float w) {
-        Matrix4f m4f = new Matrix4f(x, 0, 0, 0,
-                                    0, y, 0, 0,
-                                    0, 0, z, 0,
-                                    0, 0, 0, 1);
+        Matrix4f m4f = AffineMatricesVecCol.getScaleMatrix(x, y, z);
         for (Vector3f v3f : model.vertices) {
             Matrix4f copyM = (Matrix4f) m4f.clone();
             Matrix4f v4fMatrix = new Matrix4f(v3f.x, 0, 0, 0,
@@ -65,22 +63,7 @@ public class affineTransformerOptimusPrime {
             b = beta;
             g = gamma;
         }
-        Matrix4d rotMatrix = new Matrix4d(1, 0, 0, 0,
-                                          0, Math.cos(a), Math.sin(a), 0,
-                                          0, -Math.sin(a), Math.cos(a), 0,
-                                          0, 0, 0, 1);
-
-        Matrix4d yRotMatrix = new Matrix4d(Math.cos(b), 0, Math.sin(b), 0,
-                                                0, 1, 0, 0,
-                                          -Math.sin(b), 0, Math.cos(b), 0,
-                                                0, 0, 0, 1);
-
-        Matrix4d zRotMatrix = new Matrix4d(Math.cos(g), Math.sin(g), 0, 0,
-                                           -Math.sin(g), Math.cos(g), 0, 0,
-                                                      0, 0, 1, 0,
-                                                      0, 0, 0, 1);
-        rotMatrix.mul(yRotMatrix);
-        rotMatrix.mul(zRotMatrix);
+        Matrix4d rotMatrix = AffineMatricesVecCol.getRotateMatrix(a, b, g, isRadians);
         for (Vector3f v3f : model.vertices) {
             Matrix4d v4fM = new Matrix4d(v3f.x, 0, 0, 0,
                                          v3f.y, 0, 0, 0,
@@ -109,10 +92,7 @@ public class affineTransformerOptimusPrime {
     }
 
     public void transport(Model model, float x, float y, float z, float w) {
-        Matrix4f m4f = new Matrix4f(1, 0, 0, x,
-                                    0, 1, 0, y,
-                                    0, 0, 1, z,
-                                    0, 0, 0, 1);
+        Matrix4f m4f = AffineMatricesVecCol.getTransportMatrix(x, y, z);
         for (Vector3f v3f : model.vertices) {
             Matrix4f vm4f = new Matrix4f(v3f.x, 0, 0, 0,
                                          v3f.y, 0, 0, 0,
@@ -127,8 +107,16 @@ public class affineTransformerOptimusPrime {
     public void conveyor(Model model, float sx, float sy, float sz,
                          float alfa, float beta, float gamma, boolean isRadians,
                          float tx, float ty, float tz, float w) {
-        scale(model, sx, sy, sz, w);
-        rotate(model, alfa, beta, gamma, w, isRadians);
-        transport(model, tx, ty, tz, w);
+        Matrix4d allMatrix = AffineMatricesVecCol.getAllMatrix(sx, sy, sz,
+                                                               alfa, beta, gamma,
+                                                               isRadians, tx, ty, tz);
+        for (Vector3f v3f : model.vertices) {
+            Matrix4d copyM = (Matrix4d) allMatrix.clone();
+            Matrix4d m4d = new Matrix4d(v3f.x, 0, 0, 0,
+                                        v3f.y, 0, 0, 0,
+                                        v3f.z, 0, 0, 0,
+                                            w, 0, 0, 0);
+            copyM.mul(m4d);
+            v3f.set(copyM.m00, copyM.m10, copyM.m20);
     }
 }
