@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="621fff31-5a5c-4fad-8479-62ee1994f76d" name="Changes" comment="task 2 is not finished">
+    <list default="true" id="621fff31-5a5c-4fad-8479-62ee1994f76d" name="Changes" comment="v3 to v4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ru/vsu/cs/cgg25/g11/voronov_p_a/tasks/task3/TestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/ru/vsu/cs/cgg25/g11/voronov_p_a/tasks/task3/TestClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ru/vsu/cs/cgg25/g11/voronov_p_a/tasks/task3/AffineMatrices.java" beforeDir="false" afterPath="$PROJECT_DIR$/ru/vsu/cs/cgg25/g11/voronov_p_a/tasks/task3/AffineMatricesVecCol.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ru/vsu/cs/cgg25/g11/voronov_p_a/tasks/task3/affineTransformerOptimusPrime.java" beforeDir="false" afterPath="$PROJECT_DIR$/ru/vsu/cs/cgg25/g11/voronov_p_a/tasks/task3/affineTransformerOptimusPrime.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -239,7 +239,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766359209303</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="v3 to v4">
+      <option name="closed" value="true" />
+      <created>1766361442044</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1766361442044</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -260,7 +268,8 @@
     <MESSAGE value="something wrong" />
     <MESSAGE value="need to fix task2 + tests" />
     <MESSAGE value="task 2 is not finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="task 2 is not finished" />
+    <MESSAGE value="v3 to v4" />
+    <option name="LAST_COMMIT_MESSAGE" value="v3 to v4" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/orangecat00$Main__1_.ic" NAME="Main (1) Coverage Results" MODIFIED="1760354084810" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
