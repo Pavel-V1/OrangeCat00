@@ -26,6 +26,7 @@ public class Launcher {
         TriangleRasterizer.makeBoxForTriangle(new Point(p1.x + 100, p1.y + 100),
                                               new Point(p2.x + 100, p2.y + 100),
                                               new Point(p3.x + 100, p3.y + 100), c1);
+        TriangleRasterizer.makeTriangle(new Point(270, 270), new Point(270, 300), new Point(300, 350), Color.RED);
         TriangleRasterizer.launch();
     }
 }

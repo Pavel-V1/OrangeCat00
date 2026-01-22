@@ -47,11 +47,6 @@ public class TriangleRasterizer extends JPanel {
         }
     }
 
-    private boolean isInsideTriangle(double[] baryCoords) {
-        return baryCoords[0] >= 0 && baryCoords[1] >= 0 && baryCoords[2] >= 0 &&
-                baryCoords[0] + baryCoords[1] + baryCoords[2] <= 1 + 1e-7;
-    }
-
     public void rasterizeTriangle(Graphics g, Point a, Point b, Point c, Color c1, Color c2, Color c3) {
         Point bigger = (a.y > b.y ? a : b);
         Point lower = (a.y < b.y ? a : b);
@@ -60,8 +55,8 @@ public class TriangleRasterizer extends JPanel {
         Point middle = a != top && a != bottom ? a : b != top && b != bottom ? b : c;
 
         for (int y = bottom.y; y < middle.y; y++) {
-            int x1 = (y * (middle.x - bottom.x) / (middle.y - bottom.y));
-            int x2 = (y * (top.x - bottom.x) / (top.y - bottom.y));
+            int x1 = ((y - bottom.y) * (middle.x - bottom.x) / (middle.y - bottom.y)) + bottom.x;
+            int x2 = ((y - bottom.y) * (top.x - bottom.x) / (top.y - bottom.y)) + bottom.x;
             if (x1 > x2) {
                 int xt = x1;
                 x1 = x2;
@@ -76,8 +71,8 @@ public class TriangleRasterizer extends JPanel {
         }
 
         for (int y = middle.y; y < top.y; y++) {
-            int x1 = (y * (top.x - middle.x) / (top.y - middle.y));
-            int x2 = (y * (top.x - bottom.x) / (top.y - bottom.y));
+            int x1 = ((y - middle.y) * (top.x - middle.x) / (top.y - middle.y)) + middle.x;
+            int x2 = ((y - bottom.y) * (top.x - bottom.x) / (top.y - bottom.y)) + bottom.x;
             if (x1 > x2) {
                 int xt = x1;
                 x1 = x2;
@@ -90,17 +85,6 @@ public class TriangleRasterizer extends JPanel {
                 g.fillRect(x, y, 1, 1);
             }
         }
-        // сделать скайлайном
-//        for (int y = Math.min(Math.min(a.y, b.y), c.y); y <= Math.max(Math.max(a.y, b.y), c.y); y++) {
-//            for (int x = Math.min(Math.min(a.x, b.x), c.x); x <= Math.max(Math.max(a.x, b.x), c.x); x++) {
-//                double[] baryCoords = calculateBaryCoords(new Point(x, y), a, b, c);
-//                if (isInsideTriangle(baryCoords)) {
-//                    Color interpolatedColor = interpolateColor(baryCoords, c1, c2, c3);
-//                    g.setColor(interpolatedColor);
-//                    g.fillRect(x, y, 1, 1);
-//                }
-//            }
-//        }
     }
 
     public void rasterizeBoxT(Graphics g, Point minP, Point maxP, Color cl) {
